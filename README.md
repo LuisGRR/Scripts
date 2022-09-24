@@ -1,4 +1,4 @@
-# Scripts para automatizar tareas con python para
+# Scripts para automatizar tareas con python
 
 ## Scripts para comparar imágenes y separa las imagenes repetidas
 
