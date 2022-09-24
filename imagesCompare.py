@@ -6,7 +6,6 @@ import os
 
 #Comparacion de imagenes de la carpeta superficial
 dirCarpeta = input("Ingresar la ruta de las imagenes: ") +'/'
-#dirCarpeta = '/home/luisgerardo_rr/pythonProyect/scripts/'
 
 def crearCarpetas(nombreDir):
     try:
