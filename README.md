@@ -1,6 +1,6 @@
 # Scripts para automatizar tareas con python para
 
-## Scripts para comparar imgenes y separa las imagenes repitidas para
+## Scripts para comparar imgenes y separa las imagenes repitidas
 
 * [imagesCompare](https://github.com/LuisGRR/Scripts/blob/master/imagesCompare.py)
 * [ImegesComparaV2](https://github.com/LuisGRR/Scripts/blob/master/ImegesComparaV2.py)
