@@ -42,7 +42,7 @@ def guardarImagenesUnicas(pivote):
 
 #Funcion para compara imagenes enbase la deteccion de caracterisricas y la conincidencia de caracteristicas
 def comparaDeteccionCoincidencia(pivote, comparar):
-    shift = cv2.xfeatures2d.SIFT_create()
+    shift = cv2.SIFT_create()
     kp_1, desc_1 = shift.detectAndCompute(pivote, None)
     kp_2, desc_2 = shift.detectAndCompute(comparar, None)
     print("Keypoints 1st image", str(len(kp_1)))
@@ -90,7 +90,7 @@ def comparaImg(pivote, imgCompare):
                 imagenesIguales.append(imgCompare)
             else:
                      #   print('La imagen -> '+pivote+'es diferente de -> '+imgCompare+' se movera a la carpeta imagens unicas')
-                guardarImagenesUnicas(pivote);
+                guardarImagenesUnicas(pivote)
         else:
                     #print('La imagen -> '+pivote+' es diferente a -> '+imgCompare)
             guardarImagenesUnicas(pivote)

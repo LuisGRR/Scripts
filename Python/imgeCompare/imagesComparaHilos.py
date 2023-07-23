@@ -98,7 +98,7 @@ def comparaImg(pivoteK,pivoteV, imgCompareK,imgCompareV):
 
 def CrearMover():
     if len(diccionarioImagenesIguales) >= 1:
-       crearCarpetas(dirCarpeta+'/'+nombreCarpetaIguales)
+       crearCarpetas(dirCarpeta+'/'+nombreCarpetaIguales) # type: ignore
        moverImagenes(diccionarioImagenesIguales,dirCarpeta+'/'+nombreCarpetaIguales)
     if len(diccionarioImagenesDiferentes) >= 1:
        crearCarpetas(dirCarpeta+'/'+nombreCarpetaUnicos)
