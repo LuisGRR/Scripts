@@ -9,3 +9,7 @@
 ## Script para recorrer carpetas y subcarpetas, y mostrar sus archivos
 
 [recorrerFicheros](https://github.com/LuisGRR/Scripts/blob/master/recorrerFicheros.py)
+
+## Script para clasificar y mover archivos
+
+* [clasificasionArchivosExepciones](https://github.com/LuisGRR/Scripts/blob/master/clasificasionArchivosExepciones.py)
