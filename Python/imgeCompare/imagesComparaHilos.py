@@ -1,15 +1,15 @@
 __author__ = "Luis Gerardo Rivera Rivera"
 #Se redijo el tiempo de comparacion, pero se incremento el conumo de recuro al momento de compara si se tiene muchas imagenes
 
-from ast import arg
+# from ast import arg
 from itertools import islice 
 import threading
-import time
+# import time
 import os
 import errno
 import shutil
 import cv2
-import numpy as  np
+# import numpy as  np
 import datetime
 
 dirCarpeta = input("Ingresar la ruta de las imagenes: ") +'/'
@@ -117,35 +117,25 @@ def comparaImgHilos(diccionarioPivote):
                 comparaImg(pivoteK,pivoteV, imgCompareK,imgCompareV)
             print('---------------------------------------------')
 
+def divide_dict(data, n):
+    it = iter(data)
+    size = len(data) // n
+    return [dict(islice(it, i, i + size)) for i in range(0, len(data), size)]
 
-#particion de Diccionario pivote
-incPv = iter(diccionarioPivote.items()) 
-res1Pv = dict(islice(incPv, len(diccionarioPivote) // 2))  
-res2Pv = dict(incPv) 
+# Divide el diccionario en 4 partes
+partes = divide_dict(diccionarioPivote, 4)
 
-inc1Pv = iter(res1Pv.items()) 
-res11 = dict(islice(inc1Pv, len(res1Pv) // 2))  
-res12 = dict(inc1Pv) 
+# Crea un hilo para cada parte
+hilos = [threading.Thread(target=comparaImgHilos, args=(parte,)) for parte in partes]
 
-inc2Pv = iter(res2Pv.items()) 
-res21 = dict(islice(inc2Pv, len(res2Pv) // 2))  
-res22 = dict(inc2Pv) 
+# Inicia todos los hilos
+for hilo in hilos:
+    hilo.start()
 
-#Creacion de hilos para compara las imagenes
-hilo1 = threading.Thread(name='hilo1',target=comparaImgHilos,args=(res11,))    
-hilo2 = threading.Thread(name='hilo2',target=comparaImgHilos,args=(res12,))    
-hilo3 = threading.Thread(name='hilo3',target=comparaImgHilos,args=(res21,))    
-hilo4 = threading.Thread(name='hilo4',target=comparaImgHilos,args=(res22,))    
+# Espera a que todos los hilos terminen
+for hilo in hilos:
+    hilo.join()
 
-hilo1.start()
-hilo2.start()
-hilo3.start()
-hilo4.start()
-
-hilo1.join()
-hilo2.join()
-hilo3.join()
-hilo4.join()
 
 #Crea la carpetas para mover las imagenes 
 CrearMover()
