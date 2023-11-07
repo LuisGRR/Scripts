@@ -3,10 +3,9 @@ import os
 import shutil
 
 # class clasificasion:
-dirCarpeta = input("Ingresar la ruta de las imagenes: ") +'/'
+dirCarpeta = input("Ingresar la ruta de los archivos: ") +'/'
 dirExtenciones = []
 diccionarioArchivos = []
-
 
 def extencionArchivo(dirCarpeta):
     with os.scandir(dirCarpeta)as ficheros:
@@ -54,7 +53,7 @@ def moverArchivosExtencion(diccionarioArchivos):
         for archivo in diccionarioArchivos:
             extencion, name = archivo
             print('Se mueven los archivos a la carpeta -> Archivos-'+extencion)
-            shutil.move(dirCarpeta+'/'+name,dirCarpeta+'/Clasificasion/Archivos-'+extencion+'/')
+            shutil.move(dirCarpeta+'/'+name,dirCarpeta+'/Clasificasion/Archivos-'+extencion+'-/')
      except FileNotFoundError as err:
          if err.errno != errno.EEXIST:
             raise
