@@ -6,7 +6,7 @@ dirCarpeta = os.path.abspath(input("Ingresar la ruta de los archivos : ")) + os.
 dirExtenciones = set()
 diccionarioArchivos = []
 
-def extencionArchivo(dirCarpeta):
+def extencionArchivo(dirCarpeta): 
     for fichero in os.scandir(dirCarpeta):
         if fichero.is_file():
             _, extencion = os.path.splitext(fichero.name)
@@ -28,7 +28,7 @@ def crearCarpetasExtenciones():
     try:
         crearCarpetaRaiz()
         for ext in dirExtenciones:
-            print('Se está creando la carpeta -> '+ext)
+            print('Se está creando la carpeta -> '+ext) 
             os.mkdir(dirCarpeta+'Clasificasion-archivos/Archivos-'+ext)
     except OSError as e:
         if e.errno != errno.EEXIST:
